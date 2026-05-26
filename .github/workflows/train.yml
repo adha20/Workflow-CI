@@ -68,6 +68,10 @@ jobs:
           fi
           IMAGE_NAME="$DOCKERHUB_USERNAME/mobile-jkn-sentiment:latest"
           RUN_ID="$(cat run_id.txt)"
-          mlflow models build-docker -m "runs:/$RUN_ID/model" -n "$IMAGE_NAME" --enable-mlserver
+          mlflow models build-docker \
+            --model-uri "runs:/$RUN_ID/model" \
+            --name "$IMAGE_NAME" \
+            --env-manager=local \
+            --enable-mlserver
           echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
           docker push "$IMAGE_NAME"

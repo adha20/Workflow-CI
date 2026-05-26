@@ -6,4 +6,4 @@ Secrets required in GitHub repository:
 - DOCKERHUB_TOKEN
 
 The workflow builds the image with:
-mlflow models build-docker -m runs:/<RUN_ID>/model -n <DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest --enable-mlserver
+mlflow models build-docker --model-uri runs:/<RUN_ID>/model --name <DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest --env-manager=local --enable-mlserver
