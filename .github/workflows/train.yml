@@ -61,12 +61,12 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
-          IMAGE_NAME: adha20/mobile-jkn-sentiment:latest
         run: |
           if [ -z "$DOCKERHUB_USERNAME" ] || [ -z "$DOCKERHUB_TOKEN" ]; then
             echo "Docker Hub secrets are not configured. Skipping Docker build/push."
             exit 0
           fi
+          IMAGE_NAME="$DOCKERHUB_USERNAME/mobile-jkn-sentiment:latest"
           RUN_ID="$(cat run_id.txt)"
           mlflow models build-docker -m "runs:/$RUN_ID/model" -n "$IMAGE_NAME" --enable-mlserver
           echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin

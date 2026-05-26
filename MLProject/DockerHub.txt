@@ -1,9 +1,9 @@
 Docker image target:
-adha20/mobile-jkn-sentiment:latest
+<DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest
 
 Secrets required in GitHub repository:
 - DOCKERHUB_USERNAME
 - DOCKERHUB_TOKEN
 
 The workflow builds the image with:
-mlflow models build-docker -m runs:/<RUN_ID>/model -n adha20/mobile-jkn-sentiment:latest --enable-mlserver
+mlflow models build-docker -m runs:/<RUN_ID>/model -n <DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest --enable-mlserver
