@@ -1,0 +1,43 @@
+{
+  "dataset_name": "mobile_jkn_reviews",
+  "source_file": "..\\mobile_jkn_reviews_raw\\mobile_jkn_reviews.csv",
+  "created_at_utc": "2026-05-26T05:49:46.106640+00:00",
+  "raw_rows": 12000,
+  "rows_after_label_filter": 12000,
+  "rows_after_empty_filter": 11959,
+  "clean_rows": 10538,
+  "duplicates_removed": 1421,
+  "test_size": 0.2,
+  "random_state": 42,
+  "columns": [
+    "review_id",
+    "text",
+    "label",
+    "label_id"
+  ],
+  "label_mapping": {
+    "negatif": 0,
+    "netral": 1,
+    "positif": 2
+  },
+  "label_distribution_total": {
+    "negatif": 6669,
+    "netral": 2640,
+    "positif": 1229
+  },
+  "label_distribution_train": {
+    "negatif": 5335,
+    "netral": 2112,
+    "positif": 983
+  },
+  "label_distribution_test": {
+    "negatif": 1334,
+    "netral": 528,
+    "positif": 246
+  },
+  "files": {
+    "train": "train.csv",
+    "test": "test.csv",
+    "label_mapping": "label_mapping.json"
+  }
+}

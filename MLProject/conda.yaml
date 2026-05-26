@@ -1,0 +1,13 @@
+name: mobile-jkn-sentiment-ci
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12.7
+  - pip
+  - pip:
+      - mlflow==2.19.0
+      - pandas==2.2.3
+      - numpy==2.2.1
+      - scikit-learn==1.6.0
+      - joblib==1.4.2
