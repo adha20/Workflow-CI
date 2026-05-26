@@ -100,12 +100,13 @@ def main() -> None:
         )
         mlflow.log_artifacts(str(args.artifact_dir), artifact_path="evaluation")
 
-        signature = infer_signature(x_train.head(5).to_frame(name="text"), model.predict(x_train.head(5)))
+        signature_input = x_train.head(5).tolist()
+        signature = infer_signature(signature_input, model.predict(signature_input))
         mlflow.sklearn.log_model(
             sk_model=model,
             artifact_path="model",
             signature=signature,
-            input_example=x_train.head(3).to_frame(name="text"),
+            input_example=x_train.head(3).tolist(),
         )
 
         args.model_output.mkdir(parents=True, exist_ok=True)
