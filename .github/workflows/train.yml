@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - "MLProject/**"
+      - "!MLProject/model_output/**"
+      - "!MLProject/training_artifacts/**"
+      - "!MLProject/run_id.txt"
       - ".github/workflows/train.yml"
   workflow_dispatch:
 
