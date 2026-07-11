@@ -1,24 +1,16 @@
 {
   "labels": [
-    "negatif",
-    "netral",
-    "positif"
+    "not_canceled",
+    "canceled"
   ],
   "matrix": [
     [
-      1208,
-      125,
-      1
+      13245,
+      1757
     ],
     [
-      89,
-      420,
-      19
-    ],
-    [
-      4,
-      31,
-      211
+      1149,
+      7691
     ]
   ]
 }
