@@ -1,9 +1,9 @@
-Docker image target:
-<DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest
+﻿Docker image target:
+<DOCKERHUB_USERNAME>/hotel-booking-cancellation:latest
 
 Secrets required in GitHub repository:
 - DOCKERHUB_USERNAME
 - DOCKERHUB_TOKEN
 
-The workflow builds the image with:
-mlflow models build-docker --model-uri runs:/<RUN_ID>/model --name <DOCKERHUB_USERNAME>/mobile-jkn-sentiment:latest --env-manager=local --enable-mlserver
+Build command used by workflow:
+mlflow models build-docker --model-uri runs:/<RUN_ID>/model --name <DOCKERHUB_USERNAME>/hotel-booking-cancellation:latest --env-manager=local --enable-mlserver

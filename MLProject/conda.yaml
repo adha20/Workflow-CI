@@ -1,4 +1,4 @@
-name: mobile-jkn-sentiment-ci
+﻿name: hotel-booking-cancellation-ci
 channels:
   - conda-forge
   - defaults

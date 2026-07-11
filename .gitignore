@@ -1,4 +1,4 @@
+﻿mlruns/
+MLProject/mlruns/
 __pycache__/
 *.pyc
-.venv/
-MLProject/mlruns/

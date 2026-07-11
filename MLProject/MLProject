@@ -1,10 +1,11 @@
-name: mobile_jkn_sentiment_ci
+﻿name: hotel_booking_cancellation_ci
 
 conda_env: conda.yaml
 
 entry_points:
   main:
     parameters:
-      data_dir: {type: string, default: "mobile_jkn_reviews_preprocessing"}
+      data_dir: {type: string, default: "hotel_bookings_preprocessing"}
+      target_column: {type: string, default: "is_canceled"}
       random_state: {type: int, default: 42}
-    command: "python modelling.py --data-dir {data_dir} --random-state {random_state}"
+    command: "python modelling.py --data-dir {data_dir} --target-column {target_column} --random-state {random_state}"

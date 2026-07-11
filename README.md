@@ -1,19 +1,10 @@
-# Workflow CI
+﻿# Workflow CI
 
-Repository ini menjalankan retraining otomatis menggunakan MLflow Project.
+MLflow Project untuk retraining model pembatalan booking hotel.
 
-## Struktur
-
-- `.github/workflows/train.yml`: workflow CI.
-- `MLProject/modelling.py`: entry point training.
-- `MLProject/conda.yaml`: environment MLflow Project.
-- `MLProject/MLProject`: definisi MLflow Project.
-- `MLProject/mobile_jkn_reviews_preprocessing/`: dataset siap latih.
-- `MLProject/DockerHub.txt`: target image dan secret Docker Hub.
-
-## Menjalankan Lokal
-
-```bash
-cd MLProject
-mlflow run . --env-manager=local
-```
+Isi utama:
+- `MLProject/modelling.py`
+- `MLProject/conda.yaml`
+- `MLProject/MLProject`
+- `MLProject/hotel_bookings_preprocessing/`
+- `.github/workflows/train.yml`

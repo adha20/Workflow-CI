@@ -1,4 +1,4 @@
-name: MLflow Project Retraining
+﻿name: MLflow Project Retraining
 
 on:
   push:
@@ -33,12 +33,14 @@ jobs:
 
       - name: Run MLflow Project
         working-directory: MLProject
+        env:
+          MLFLOW_TRACKING_URI: file:./mlruns
         run: mlflow run . --env-manager=local
 
       - name: Upload training artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: mobile-jkn-training-artifacts
+          name: hotel-booking-training-artifacts
           path: |
             MLProject/model_output
             MLProject/training_artifacts
@@ -52,7 +54,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No artifact changes to commit."
           else
-            git commit -m "Update CI training artifacts"
+            git commit -m "Update CI hotel booking artifacts"
             git push
           fi
 
@@ -61,12 +63,13 @@ jobs:
         env:
           DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          MLFLOW_TRACKING_URI: file:./mlruns
         run: |
           if [ -z "$DOCKERHUB_USERNAME" ] || [ -z "$DOCKERHUB_TOKEN" ]; then
             echo "Docker Hub secrets are not configured. Skipping Docker build/push."
             exit 0
           fi
-          IMAGE_NAME="$DOCKERHUB_USERNAME/mobile-jkn-sentiment:latest"
+          IMAGE_NAME="$DOCKERHUB_USERNAME/hotel-booking-cancellation:latest"
           RUN_ID="$(cat run_id.txt)"
           mlflow models build-docker \
             --model-uri "runs:/$RUN_ID/model" \
@@ -75,3 +78,4 @@ jobs:
             --enable-mlserver
           echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
           docker push "$IMAGE_NAME"
+
