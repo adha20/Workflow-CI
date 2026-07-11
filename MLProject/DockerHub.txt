@@ -1,9 +1,11 @@
-﻿Docker image target:
-<DOCKERHUB_USERNAME>/hotel-booking-cancellation:latest
+﻿Docker Hub:
+https://hub.docker.com/r/adha20/hotel-booking-cancellation
 
-Secrets required in GitHub repository:
-- DOCKERHUB_USERNAME
-- DOCKERHUB_TOKEN
+Image:
+adha20/hotel-booking-cancellation:latest
 
-Build command used by workflow:
-mlflow models build-docker --model-uri runs:/<RUN_ID>/model --name <DOCKERHUB_USERNAME>/hotel-booking-cancellation:latest --env-manager=local --enable-mlserver
+Workflow run:
+https://github.com/adha20/Workflow-CI/actions/runs/29135683412
+
+Build command:
+mlflow models build-docker --model-uri runs:/<RUN_ID>/model --name adha20/hotel-booking-cancellation:latest --env-manager=local --enable-mlserver
